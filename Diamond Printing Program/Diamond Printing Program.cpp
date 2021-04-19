@@ -5,44 +5,44 @@ using namespace std;
 
 int main()
 {
-    //num = array
-
+    //size = diamond size
+    //space = spaces before asterisks
     int size = 9;
-    int space = size - 1;
+    int space = size / 2 + 1;
 
     cout << "This program prints a 9 x 9 diamond pattern\n\n";
 
     //Builds top half of diamond
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i+=2)
     {
-        
-    }
-    
-    while (i < 4)
-    {
-        cout << "Enter number " << i + 1 << ": ";
-        cin >> num[i];
-        i++;
-    }
-    i = 0;
-
-    sum = accumulate(num, num + 4, 0);
-    avg = sum / 4;
-
-    while (i < 4)
-    {
-        if (num[i] > avg)
+        //Print spaces
+        for (int j = 0; j < space; j++)
         {
-            cnt += 1;
-            i++;
+            cout << " ";
         }
-        else
+        //Print asterisks
+        for (int k = 0; k < i-1; k++)
         {
-            i++;
+            cout << "*";
         }
+        cout << endl;
+        space--;
     }
 
-    cout << "\nThe sum is " << sum << "\n";
-    cout << "\nThe average is " << avg << "\n";
-    cout << "\n" << cnt << " number(s) are above average.\n";
+    //Builds bottom half of diamond
+    for (int i = size; i > 0; i-=2)
+    {
+        //Print spaces
+        for (int j = 0; j < space; j++)
+        {
+            cout << " ";
+        }
+        //Print asterisks
+        for (int k = 0; k < i; k++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+        space++;
+    }
 }
